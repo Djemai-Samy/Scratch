@@ -1,0 +1,23 @@
+{
+	"name": "scratch/scratch",
+	"version": "1.0.3",
+	"description": "A PHP framework inspired by Symfony and designed for seamless integration with React.",
+	"type": "library",
+	"autoload": {
+		"psr-4": {
+			"Scratch\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "samy djemai",
+			"email": "samy.djemai93@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=8.2"
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"license": "MIT"
+}
