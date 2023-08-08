@@ -124,8 +124,6 @@ class React {
 
   function render($data) {
 
-
-
     $data = json_encode(['url' => $this->req->getUri(), 'data' => $data]);
     if ($this->req->acceptJson()) {
       return $data;
@@ -133,6 +131,7 @@ class React {
     $dataEsc = base64_encode($data);
 
     $ret = exec('node ./' . $this->server_entry_name . " \"$dataEsc\"", $out, $res);
+
 
     //read the entire string
     $str = $this->getTemplateContent();
@@ -167,7 +166,9 @@ class React {
     }
     $dataEsc = $this->getBase64Data();
 
-    $this->app = exec('node ../.scratch/entries/' . $this->server_entry_name . " \"$dataEsc\"", $out, $res);
+    $render = exec('node ../.scratch/entries/' . $this->server_entry_name . " \"$dataEsc\"", $out, $res);
+
+    $this->app = str_replace("\\n", "\n", $render);
 
     if ($this->app === '') return  $this;
 
